@@ -156,3 +156,6 @@ app.use(csrf({ cookie: true }));
 ## Conclusão
 
 CSRF permanece uma ameaça significativa mesmo com defesas modernas. A prevenção efetiva requer implementação de múltiplas camadas de segurança e design seguro desde o desenvolvimento. Desenvolvedores devem tratar as defesas como proteções adicionais, não primárias, garantindo que suas aplicações sejam inerentemente seguras contra ataques CSRF.
+
+Source 
+https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html

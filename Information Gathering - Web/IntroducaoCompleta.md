@@ -1,0 +1,43 @@
+Introdução
+Web Reconnaissanceé a base de uma avaliação de segurança completa. Esse processo envolve a coleta sistemática e meticulosa de informações sobre um site ou aplicativo web alvo. Pense nisso como a fase preparatória antes de se aprofundar na análise e na possível exploração. Constitui uma parte crucial da Information Gatheringfase de "teste de penetração" do processo de teste de penetração.
+
+Fluxograma do processo de teste de penetração: Pré-engajamento, Coleta de informações, Avaliação de vulnerabilidades, Exploração, Pós-exploração, Movimentação lateral, Prova de conceito e Pós-engajamento.
+
+Os principais objetivos do reconhecimento web incluem:
+
+Identifying AssetsDescobrir todos os componentes publicamente acessíveis do alvo, como páginas da web, subdomínios, endereços IP e tecnologias utilizadas. Esta etapa fornece uma visão geral abrangente da presença online do alvo.
+Discovering Hidden InformationLocalizar informações sensíveis que possam ter sido expostas inadvertidamente, incluindo arquivos de backup, arquivos de configuração ou documentação interna. Essas descobertas podem revelar informações valiosas e potenciais pontos de entrada para ataques.
+Analysing the Attack SurfaceAnalisar a superfície de ataque do alvo para identificar potenciais vulnerabilidades e pontos fracos. Isso envolve avaliar as tecnologias utilizadas, as configurações e os possíveis pontos de entrada para exploração.
+Gathering IntelligenceColetar informações que possam ser usadas para exploração adicional ou ataques de engenharia social. Isso inclui identificar pessoal-chave, endereços de e-mail ou padrões de comportamento que possam ser explorados.
+Os atacantes utilizam essas informações para personalizar seus ataques, permitindo que explorem vulnerabilidades específicas e contornem medidas de segurança. Por outro lado, os defensores usam o reconhecimento para identificar e corrigir proativamente as vulnerabilidades antes que os agentes maliciosos possam explorá-las.
+
+Tipos de Reconhecimento
+O reconhecimento web engloba duas metodologias fundamentais: reconhecimento visual activee passivereconhecimento de dados. Cada abordagem oferece vantagens e desafios distintos, e compreender suas diferenças é crucial para uma coleta de informações adequada.
+
+Reconhecimento Ativo
+No reconhecimento ativo, o atacante directly interacts with the target systembusca coletar informações. Essa interação pode assumir diversas formas:
+
+Técnica	Descrição	Exemplo	Ferramentas	Risco de Detecção
+Port Scanning	Identificar portas abertas e serviços em execução no alvo.	Utilizando o Nmap para verificar se um servidor web possui portas abertas, como a 80 (HTTP) e a 443 (HTTPS).	Nmap, Masscan, Unicornscan	Alto: A interação direta com o alvo pode acionar sistemas de detecção de intrusão (IDS) e firewalls.
+Vulnerability Scanning	Sondar o alvo em busca de vulnerabilidades conhecidas, como software desatualizado ou configurações incorretas.	Executar o Nessus em uma aplicação web para verificar falhas de injeção de SQL ou vulnerabilidades de cross-site scripting (XSS).	Nessus, OpenVAS, Nikto	Alto: Os scanners de vulnerabilidades enviam cargas úteis de exploração que as soluções de segurança conseguem detectar.
+Network Mapping	Mapeamento da topologia da rede alvo, incluindo dispositivos conectados e seus relacionamentos.	Utilizando o traceroute para determinar o caminho percorrido pelos pacotes até chegarem ao servidor de destino, revelando possíveis saltos na rede e na infraestrutura.	Traceroute, Nmap	De nível médio a alto: Tráfego de rede excessivo ou incomum pode levantar suspeitas.
+Banner Grabbing	Recuperar informações de banners exibidos por serviços em execução no dispositivo de destino.	Conectar-se a um servidor web na porta 80 e examinar o banner HTTP para identificar o software e a versão do servidor web.	Netcat, curl	Baixo: A captura de banners geralmente envolve interação mínima, mas ainda pode ser registrada.
+OS Fingerprinting	Identificar o sistema operacional em execução no dispositivo de destino.	Utilizando os recursos de detecção de SO do Nmap ( -O) para determinar se o alvo está executando Windows, Linux ou outro SO.	Nmap, Xprobe2	Nível baixo: A identificação por impressão digital do sistema operacional geralmente é passiva, mas algumas técnicas avançadas podem ser detectadas.
+Service Enumeration	Determinar as versões específicas dos serviços em execução nas portas abertas.	Utilizando a detecção de versão de serviço do Nmap ( -sV) para determinar se um servidor web está executando o Apache 2.4.50 ou o Nginx 1.18.0.	Nmap	Baixa: Semelhante à captura de banners, a enumeração de serviços pode ser registrada, mas tem menor probabilidade de acionar alertas.
+Web Spidering	Rastrear o site alvo para identificar páginas da web, diretórios e arquivos.	Executar um rastreador web como o Burp Suite Spider ou o OWASP ZAP Spider para mapear a estrutura de um site e descobrir recursos ocultos.	Burp Suite Spider, OWASP ZAP Spider, Scrapy (personalizável)	Nível baixo a médio: Pode ser detectado se o comportamento do rastreador não estiver cuidadosamente configurado para imitar o tráfego legítimo.
+O reconhecimento ativo proporciona uma visão direta e, muitas vezes, mais abrangente da infraestrutura e da postura de segurança do alvo. No entanto, também acarreta um risco maior de detecção, uma vez que as interações com o alvo podem acionar alertas ou levantar suspeitas.
+
+Reconhecimento Passivo
+Em contraste, o reconhecimento passivo envolve a coleta de informações sobre o alvo without directly interactingpor meio dele. Isso se baseia na análise de informações e recursos disponíveis publicamente, tais como:
+
+Técnica	Descrição	Exemplo	Ferramentas	Risco de Detecção
+Search Engine Queries	Utilizar mecanismos de busca para descobrir informações sobre o alvo, incluindo sites, perfis de redes sociais e artigos de notícias.	Ao pesquisar no Google por " [Target Name] employees" para encontrar informações sobre funcionários ou perfis de redes sociais.	Google, DuckDuckGo, Bing e mecanismos de busca especializados (por exemplo, Shodan)	Muito baixo: as consultas em mecanismos de busca são atividades normais na internet e têm pouca probabilidade de gerar alertas.
+WHOIS Lookups	Consultar bancos de dados WHOIS para obter detalhes de registro de domínio.	Realizar uma pesquisa WHOIS em um domínio alvo para encontrar o nome do registrante, informações de contato e servidores de nomes.	Ferramenta de linha de comando whois, serviços de pesquisa WHOIS online	Muito baixo: as consultas WHOIS são legítimas e não levantam suspeitas.
+DNS	Analisar registros DNS para identificar subdomínios, servidores de e-mail e outras infraestruturas.	Utilizado digpara enumerar subdomínios de um domínio alvo.	dig, nslookup, host, dnsenum, fierce, dnsrecon	Muito baixo: as consultas de DNS são essenciais para a navegação na internet e normalmente não são sinalizadas como suspeitas.
+Web Archive Analysis	Analisar registros históricos do site alvo para identificar alterações, vulnerabilidades ou informações ocultas.	Utilizando o Wayback Machine para visualizar versões antigas de um site específico e verificar como ele mudou ao longo do tempo.	Máquina do Tempo	Muito baixo: acessar versões arquivadas de sites é uma atividade normal.
+Social Media Analysis	Coletar informações de plataformas de mídia social como LinkedIn, Twitter ou Facebook.	Pesquisar no LinkedIn funcionários de uma organização-alvo para obter informações sobre suas funções, responsabilidades e possíveis alvos de engenharia social.	LinkedIn, Twitter, Facebook, ferramentas OSINT especializadas	Muito baixo: o acesso a perfis públicos de redes sociais não é considerado invasivo.
+Code Repositories	Analisar repositórios de código publicamente acessíveis, como o GitHub, em busca de credenciais expostas ou vulnerabilidades.	Pesquisar no GitHub por trechos de código ou repositórios relacionados ao alvo que possam conter informações confidenciais ou vulnerabilidades no código.	GitHub, GitLab	Muito baixo: Repositórios de código são destinados ao acesso público, e pesquisá-los não é considerado suspeito.
+O reconhecimento passivo é geralmente considerado mais discreto e menos propenso a disparar alarmes do que o reconhecimento ativo. No entanto, pode fornecer informações menos abrangentes, pois depende do que já é de acesso público.
+
+Neste módulo, vamos explorar as ferramentas e técnicas essenciais usadas em reconhecimento web, começando pelo WHOIS. Compreender o protocolo WHOIS fornece acesso a informações vitais sobre registros de domínio, detalhes de propriedade e a infraestrutura digital dos alvos. Esse conhecimento fundamental prepara o terreno para métodos de reconhecimento mais avançados que exploraremos posteriormente.
+

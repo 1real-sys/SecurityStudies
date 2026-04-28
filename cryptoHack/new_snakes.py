@@ -156,3 +156,51 @@ for letra in texto:
     # converte de volta para caractere e adiciona na string final
     resultado += chr(xor1)
 print(resultado)
+
+
+#Página 7
+
+"""
+vamos abordar as propriedades da operação XOR e usá-las para desfazer uma sequência de operações que criptografaram uma flag. Entender isso intuitivamente ajuda muito quando você for atacar criptossistemas reais, especialmente cifras de bloco.
+
+Existem quatro propriedades principais do XOR:
+
+Comutativa: A ⊕ B = B ⊕ A
+Associativa: A ⊕ (B ⊕ C) = (A ⊕ B) ⊕ C
+Identidade: A ⊕ 0 = A
+Autoinversa: A ⊕ A = 0
+
+Explicando:
+
+Comutativa → a ordem não importa
+Associativa → você pode agrupar como quiser
+Identidade → XOR com 0 não muda nada
+Autoinversa → XOR com ele mesmo zera
+
+Agora aplique isso: várias chaves foram combinadas com XOR junto com a flag. Use essas propriedades para desfazer a última linha e recuperar a flag.
+
+Antes de aplicar XOR, converta os dados de hexadecimal para bytes.
+XOR opera em bits (valores binários reais), e o hex é só texto representando esses bytes, então precisa converter antes.
+
+XOR é reversível: aplicar de novo desfaz.
+Você pode “cancelar” valores repetidos.
+Ordem e agrupamento não importam → dá pra reorganizar tudo.
+Muito usado em ataques reais quando há reutilização de chave.
+Esse tipo de raciocínio aparece direto em CTF e pentest.
+"""
+
+key1 = bytes.fromhex("a6c8b6733c9b22de7bc0253266a3867df55acde8635e19c73313")
+key2_xor_key1 = bytes.fromhex("37dcb292030faa90d07eec17e3b1c6d8daf94c35d4c9191a5e1e")
+key2_xor_key3 = bytes.fromhex("c1545756687e7573db23aa1c3452a098b71a7fbf0fddddde5fc1")
+result = bytes.fromhex("04ee9855208a2cd59091d04767ae47963170d1660df7f56f5faf")
+
+key2 = xor(key2_xor_key1, key1)
+key3 = xor(key2_xor_key3, key2)
+flag = xor(result, key1, key2, key3)
+print("1" + flag.decode())
+
+#Página 8
+
+flag = bytes.fromhex('0e0b213f26041e480b26217f27342e175d0e070a3c5b103e2526217f27342e175d0e077e263451150104')
+print(xor(flag, 'crypto{'.encode())) # oh, it says 'myXORke+y...'
+print(xor(flag, 'myXORkey'.encode())) # try this? yay, it works! sometimes simpler is better

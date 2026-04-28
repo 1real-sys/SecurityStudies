@@ -5,6 +5,7 @@
 import sys
 import base64
 from Crypto.Util.number import *
+from pwn import *
 # import this
 
 if sys.version_info.major == 2:

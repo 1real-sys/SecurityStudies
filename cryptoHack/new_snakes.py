@@ -124,3 +124,34 @@ n = 1151519506386231889993168548881374739577551628728968263649996528271463725920
 data = long_to_bytes(n)
 # converte os bytes para string (texto legível) e imprime
 print(data.decode())
+
+#Página 6
+"""
+XOR é um operador bit a bit que retorna 0 se os bits forem iguais, e 1 caso contrário. Em livros, o operador XOR é representado por ⊕, mas na maioria das linguagens e desafios você verá o símbolo ^ sendo usado.
+
+Para números binários maiores, aplicamos XOR bit a bit:
+0110 ^ 1010 = 1100
+
+Podemos aplicar XOR em inteiros convertendo-os de decimal para binário. Também podemos aplicar XOR em strings convertendo cada caractere para seu valor numérico (Unicode/ASCII).
+
+Dada a string label, aplique XOR com o número 13 em cada caractere. Depois converta de volta para string e envie no formato: crypto{new_string}.
+
+A biblioteca pwntools do Python possui uma função xor() que facilita isso, mas você também pode implementar manualmente.
+
+XOR funciona bit a bit (nível binário).
+Muito usado em criptografia simples e CTF.
+Aplicar XOR duas vezes com o mesmo número volta ao original.
+ord() transforma letra → número.
+chr() transforma número → letra.
+"""
+texto = "label"
+resultado = ""
+
+for letra in texto:
+    # converte a letra para número (ASCII/Unicode)
+    numero = ord(letra)
+    # aplica XOR com 13
+    xor1 = numero ^ 13
+    # converte de volta para caractere e adiciona na string final
+    resultado += chr(xor1)
+print(resultado)

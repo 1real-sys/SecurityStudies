@@ -7,8 +7,8 @@ This makes this type of XSS the most critical, as it affects a much wider audien
 
 We can start the server below to view and practice a Stored XSS example. As we can see, the web page is a simple To-Do List app that we can add items to. We can try typing test and hitting enter/return to add a new item and see how the page handles it:
 
-<a href="xss2.png">
-  <img src="xss2.png" alt="To-Do List application used to practice Stored XSS">
+<a href="img/xss2.png">
+  <img src="img/xss2.png" alt="To-Do List application used to practice Stored XSS">
 </a>
 
 As we can see, our input was displayed on the page. If no sanitization or filtering was applied to our input, the page might be vulnerable to XSS.
@@ -21,8 +21,8 @@ We can test whether the page is vulnerable to XSS with the following basic XSS p
 
 We use this payload as it is a very easy-to-spot method to know when our XSS payload has been successfully executed. Suppose the page allows any input and does not perform any sanitization on it. In that case, the alert should pop up with the URL of the page it is being executed on, directly after we input our payload or when we refresh the page:
 
-<a href="xss3.png">
-  <img src="xss3.png" alt="Alert dialog showing the successful execution of the XSS payload">
+<a href="img/xss3.png">
+  <img src="img/xss3.png" alt="Alert dialog showing the successful execution of the XSS payload">
 </a>
 
 As we can see, we did indeed get the alert, which means that the page is vulnerable to XSS, since our payload executed successfully. We can confirm this further by looking at the page source by clicking CTRL+U or right-clicking and selecting View Page Source, and we should see our payload in the page source:

@@ -35,8 +35,8 @@ Payload original para definir a cor usada pelo Hack The Box:
 <script>document.body.style.background = "#141d2b"</script>
 ```
 
-<a href="../xss12.png">
-  <img src="../xss12.png" alt="Cor de fundo da aplicação alterada por um payload Stored XSS">
+<a href="../img/xss12.png">
+  <img src="../img/xss12.png" alt="Cor de fundo da aplicação alterada por um payload Stored XSS">
 </a>
 
 A propriedade também aceita cores nomeadas, como `black`, ou outros valores CSS válidos.
@@ -55,8 +55,8 @@ O título exibido na aba do navegador pode ser alterado com:
 <script>document.title = 'HackTheBox Academy'</script>
 ```
 
-<a href="../xss13.png">
-  <img src="../xss13.png" alt="Título da aba alterado pelo payload XSS">
+<a href="../img/xss13.png">
+  <img src="../img/xss13.png" alt="Título da aba alterado pelo payload XSS">
 </a>
 
 Essa modificação pode reforçar a aparência falsa ou substituir elementos de identidade visual da aplicação.
@@ -102,8 +102,8 @@ Payload final, preservado do material:
 <script>document.getElementsByTagName('body')[0].innerHTML = '<center><h1 style="color: white">Cyber Security Training</h1><p style="color: white">by <img src="https://academy.hackthebox.com/images/logo-htb.svg" height="25px" alt="HTB Academy"> </p></center>'</script>
 ```
 
-<a href="../xss14.png">
-  <img src="../xss14.png" alt="Resultado final do defacement realizado no laboratório">
+<a href="../img/xss14.png">
+  <img src="../img/xss14.png" alt="Resultado final do defacement realizado no laboratório">
 </a>
 
 ## Por que o código original permanece

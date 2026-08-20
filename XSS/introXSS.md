@@ -8,8 +8,8 @@ XSS vulnerabilities are solely executed on the client-side and hence do not dire
 
 Risk matrix with axes: Probability (low to high) and Impact (low to high), showing strategies: Reduce, Avoid, Accept, Transfer.
 
-<a href="xss1.png">
-  <img src="xss1.png" alt="Risk matrix with Probability and Impact axes and the strategies Reduce, Avoid, Accept, and Transfer">
+<a href="img/xss1.png">
+  <img src="img/xss1.png" alt="Risk matrix with Probability and Impact axes and the strategies Reduce, Avoid, Accept, and Transfer">
 </a>
 
 XSS Attacks

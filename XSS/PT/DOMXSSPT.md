@@ -4,22 +4,22 @@ O terceiro e último tipo de XSS é outro tipo não persistente chamado DOM-base
 
 Podemos executar o servidor abaixo para ver um exemplo de aplicação web vulnerável a DOM XSS. Podemos tentar adicionar um item de teste e veremos que a aplicação é semelhante às aplicações de lista de tarefas (To-Do List) utilizadas anteriormente:
 
-<a href="../xss8.png">
-  <img src="../xss8.png" alt="Aplicação de lista de tarefas usada para demonstrar DOM-based XSS">
+<a href="../img/xss8.png">
+  <img src="../img/xss8.png" alt="Aplicação de lista de tarefas usada para demonstrar DOM-based XSS">
 </a>
 
 Entretanto, se abrirmos a aba **Network** nas ferramentas de desenvolvedor do Firefox e adicionarmos novamente o item de teste, perceberemos que nenhuma requisição HTTP é realizada:
 
-<a href="../xss9.png">
-  <img src="../xss9.png" alt="Aba Network do Firefox mostrando que adicionar a tarefa não gera uma requisição HTTP">
+<a href="../img/xss9.png">
+  <img src="../img/xss9.png" alt="Aba Network do Firefox mostrando que adicionar a tarefa não gera uma requisição HTTP">
 </a>
 
 Vemos que o parâmetro de entrada na URL utiliza uma cerquilha `#` para o item adicionado, o que significa que esse é um parâmetro do lado do cliente, processado inteiramente pelo navegador. Isso indica que a entrada é processada no lado do cliente por JavaScript e nunca chega ao back-end; portanto, trata-se de DOM-based XSS.
 
 Além disso, se examinarmos o código-fonte da página pressionando `CTRL+U`, perceberemos que nossa string de teste não aparece em lugar algum. Isso acontece porque o código JavaScript atualiza a página quando clicamos no botão **Add**, depois que o navegador já obteve o código-fonte da página. Por isso, o código-fonte base não mostrará nossa entrada e, se atualizarmos a página, ela não será mantida (ou seja, é não persistente). Ainda podemos visualizar o código renderizado da página usando a ferramenta Web Inspector ao pressionar `CTRL+SHIFT+C`:
 
-<a href="../xss10.png">
-  <img src="../xss10.png" alt="Web Inspector mostrando a tarefa adicionada dinamicamente ao DOM renderizado">
+<a href="../img/xss10.png">
+  <img src="../img/xss10.png" alt="Web Inspector mostrando a tarefa adicionada dinamicamente ao DOM renderizado">
 </a>
 
 ## Source e Sink
@@ -69,8 +69,8 @@ Se tentarmos usar o payload XSS empregado anteriormente, veremos que ele não se
 
 A linha acima cria um novo objeto de imagem HTML com um atributo `onerror`, capaz de executar código JavaScript quando a imagem não é encontrada. Como fornecemos um link de imagem vazio (`""`), nosso código deve ser executado sem a necessidade de usar tags `<script>`:
 
-<a href="../xss11.png">
-  <img src="../xss11.png" alt="Execução bem-sucedida de DOM XSS usando o manipulador de evento onerror de uma imagem">
+<a href="../img/xss11.png">
+  <img src="../img/xss11.png" alt="Execução bem-sucedida de DOM XSS usando o manipulador de evento onerror de uma imagem">
 </a>
 
 Para atingir um usuário com essa vulnerabilidade DOM XSS, podemos novamente copiar a URL do navegador e compartilhá-la. Quando a vítima visitar essa URL, o código JavaScript deverá ser executado. Esses payloads estão entre os exemplos mais básicos de XSS. Existem muitas situações nas quais pode ser necessário usar payloads diferentes, dependendo das proteções da aplicação web e do navegador, assunto que será discutido na próxima seção.

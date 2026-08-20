@@ -35,8 +35,8 @@ Para alterar o fundo de uma página web, podemos escolher determinada cor ou usa
 
 Depois que adicionarmos nosso payload à lista de tarefas (To-Do List), veremos que a cor de fundo foi alterada:
 
-<a href="../xss12.png">
-  <img src="../xss12.png" alt="Stored XSS alterando a cor de fundo da página web">
+<a href="../img/xss12.png">
+  <img src="../img/xss12.png" alt="Stored XSS alterando a cor de fundo da página web">
 </a>
 
 Essa alteração persistirá após atualizações da página e aparecerá para qualquer pessoa que a visitar, pois estamos utilizando uma vulnerabilidade Stored XSS.
@@ -59,8 +59,8 @@ Podemos alterar o título da página de `2Do` para qualquer título que escolher
 
 Podemos ver na janela ou aba da página que o novo título substituiu o anterior:
 
-<a href="../xss13.png">
-  <img src="../xss13.png" alt="Aba do navegador mostrando o título da página alterado por meio de XSS">
+<a href="../img/xss13.png">
+  <img src="../img/xss13.png" alt="Aba do navegador mostrando o título da página alterado por meio de XSS">
 </a>
 
 ## Alterando o texto da página
@@ -106,8 +106,8 @@ Minificaremos o código HTML em uma única linha e o adicionaremos ao payload XS
 
 Depois que adicionarmos nosso payload à To-Do List vulnerável, veremos que o código HTML passa a fazer parte permanentemente do código-fonte da página web e exibe nossa mensagem para qualquer pessoa que a visite:
 
-<a href="../xss14.png">
-  <img src="../xss14.png" alt="Página desfigurada exibindo a mensagem injetada do Hack The Box Academy">
+<a href="../img/xss14.png">
+  <img src="../img/xss14.png" alt="Página desfigurada exibindo a mensagem injetada do Hack The Box Academy">
 </a>
 
 Usando três payloads XSS, conseguimos desfigurar com sucesso a página web alvo. Se examinarmos o código-fonte da página, veremos que o código original ainda existe e que os payloads injetados aparecem no final:

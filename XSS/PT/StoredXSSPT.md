@@ -8,8 +8,8 @@ Isso torna esse tipo de XSS o mais crítico, pois ele afeta um público muito ma
 
 Podemos iniciar o servidor abaixo para visualizar e praticar um exemplo de Stored XSS. Como podemos ver, a página web é uma aplicação simples de lista de tarefas (To-Do List), à qual podemos adicionar itens. Podemos tentar digitar `test` e pressionar Enter/Return para adicionar um novo item e observar como a página o processa:
 
-<a href="../xss2.png">
-  <img src="../xss2.png" alt="Aplicação de lista de tarefas usada para praticar Stored XSS">
+<a href="../img/xss2.png">
+  <img src="../img/xss2.png" alt="Aplicação de lista de tarefas usada para praticar Stored XSS">
 </a>
 
 Como podemos ver, nossa entrada foi exibida na página. Se nenhuma sanitização ou filtragem tiver sido aplicada à entrada, a página poderá estar vulnerável a XSS.
@@ -24,8 +24,8 @@ Podemos testar se a página está vulnerável a XSS com o seguinte payload XSS b
 
 Usamos esse payload porque ele oferece uma forma muito fácil de perceber quando o payload XSS foi executado com sucesso. Suponha que a página aceite qualquer entrada e não realize nenhuma sanitização. Nesse caso, imediatamente após inserirmos o payload ou atualizarmos a página, deverá aparecer uma caixa de alerta com a URL da página na qual ele está sendo executado:
 
-<a href="../xss3.png">
-  <img src="../xss3.png" alt="Caixa de alerta demonstrando a execução bem-sucedida do payload XSS">
+<a href="../img/xss3.png">
+  <img src="../img/xss3.png" alt="Caixa de alerta demonstrando a execução bem-sucedida do payload XSS">
 </a>
 
 Como podemos ver, a caixa de alerta realmente apareceu, o que significa que a página está vulnerável a XSS, pois o payload foi executado com sucesso. Podemos confirmar isso examinando o código-fonte da página ao pressionar `CTRL+U` ou clicar com o botão direito e selecionar **View Page Source**. Deveremos ver o payload no código-fonte:

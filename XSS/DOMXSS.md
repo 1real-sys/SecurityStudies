@@ -3,20 +3,20 @@ The third and final type of XSS is another Non-Persistent type called DOM-based 
 
 We can run the server below to see an example of a web application vulnerable to DOM XSS. We can try adding a test item, and we see that the web application is similar to the To-Do List web applications we previously used:
 
-<a href="xss8.png">
-  <img src="xss8.png" alt="To-Do List application used to demonstrate DOM-based XSS">
+<a href="img/xss8.png">
+  <img src="img/xss8.png" alt="To-Do List application used to demonstrate DOM-based XSS">
 </a>
 However, if we open the Network tab in the Firefox Developer Tools, and re-add the test item, we would notice that no HTTP requests are being made:
 
-<a href="xss9.png">
-  <img src="xss9.png" alt="Firefox Network tab showing that adding the task generates no HTTP request">
+<a href="img/xss9.png">
+  <img src="img/xss9.png" alt="Firefox Network tab showing that adding the task generates no HTTP request">
 </a>
 We see that the input parameter in the URL is using a hashtag # for the item we added, which means that this is a client-side parameter that is completely processed on the browser. This indicates that the input is being processed at the client-side through JavaScript and never reaches the back-end; hence it is a DOM-based XSS.
 
 Furthermore, if we look at the page source by hitting CTRL+U, we will notice that our test string is nowhere to be found. This is because the JavaScript code is updating the page when we click the Add button, which is after the page source is retrieved by our browser, hence the base page source will not show our input, and if we refresh the page, it will not be retained (i.e. Non-Persistent). We can still view the rendered page source with the Web Inspector tool by clicking CTRL+SHIFT+C:
 
-<a href="xss10.png">
-  <img src="xss10.png" alt="Web Inspector showing the task added dynamically to the rendered DOM">
+<a href="img/xss10.png">
+  <img src="img/xss10.png" alt="Web Inspector showing the task added dynamically to the rendered DOM">
 </a>
 
 Source & Sink
@@ -55,9 +55,8 @@ If we try the XSS payload we have been using previously, we will see that it wil
 
 The above line creates a new HTML image object, which has a onerror attribute that can execute JavaScript code when the image is not found. So, as we provided an empty image link (""), our code should always get executed without having to use <script> tags:
 
-<a href="xss11.png">
-  <img src="xss11.png" alt="Successful DOM XSS execution using an image onerror event handler">
+<a href="img/xss11.png">
+  <img src="img/xss11.png" alt="Successful DOM XSS execution using an image onerror event handler">
 </a>
 
 To target a user with this DOM XSS vulnerability, we can once again copy the URL from the browser and share it with them, and once they visit it, the JavaScript code should execute. Both of these payloads are among the most basic XSS payloads. There are many instances where we may need to use various payloads depending on the security of the web application and the browser, which we will discuss in the next section.
-

@@ -18,22 +18,22 @@ O fluxo básico é:
 
 ## Identificação no laboratório
 
-<a href="../xss8.png">
-  <img src="../xss8.png" alt="Aplicação de lista de tarefas usada no laboratório de DOM-based XSS">
+<a href="../img/xss8.png">
+  <img src="../img/xss8.png" alt="Aplicação de lista de tarefas usada no laboratório de DOM-based XSS">
 </a>
 
 A aplicação adiciona uma tarefa a partir da URL. A aba **Network** mostra que a ação não gera uma nova requisição HTTP:
 
-<a href="../xss9.png">
-  <img src="../xss9.png" alt="Aba Network sem uma requisição HTTP ao adicionar a tarefa">
+<a href="../img/xss9.png">
+  <img src="../img/xss9.png" alt="Aba Network sem uma requisição HTTP ao adicionar a tarefa">
 </a>
 
 O valor aparece depois de `#` na URL. Essa parte é o fragmento (*fragment identifier*) e não é enviada ao servidor nas requisições HTTP normais. O JavaScript da página pode, porém, lê-la e usá-la localmente.
 
 Pressionar `CTRL+U` mostra apenas o HTML original recebido do servidor. Como a alteração acontece depois, é necessário inspecionar o DOM renderizado com as ferramentas de desenvolvedor, por exemplo com `CTRL+SHIFT+C`:
 
-<a href="../xss10.png">
-  <img src="../xss10.png" alt="Web Inspector exibindo o DOM modificado pelo JavaScript">
+<a href="../img/xss10.png">
+  <img src="../img/xss10.png" alt="Web Inspector exibindo o DOM modificado pelo JavaScript">
 </a>
 
 ## Source e Sink
@@ -68,8 +68,8 @@ O payload usado no material é:
 
 O navegador tenta carregar a imagem com `src` vazio. Quando ocorre o erro de carregamento, o manipulador `onerror` executa o JavaScript:
 
-<a href="../xss11.png">
-  <img src="../xss11.png" alt="Alerta confirmando a execução do payload DOM XSS com onerror">
+<a href="../img/xss11.png">
+  <img src="../img/xss11.png" alt="Alerta confirmando a execução do payload DOM XSS com onerror">
 </a>
 
 Esse comportamento demonstra por que bloquear apenas a tag `<script>` não é uma mitigação suficiente.

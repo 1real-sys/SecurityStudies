@@ -6,20 +6,20 @@ As vulnerabilidades Reflected XSS ocorrem quando nossa entrada chega ao servidor
 
 Podemos iniciar o servidor abaixo para praticar em uma página web vulnerável a Reflected XSS. Trata-se de uma aplicação de lista de tarefas (To-Do List) semelhante àquela em que praticamos na seção anterior. Podemos tentar adicionar qualquer string de teste para observar como ela é processada:
 
-<a href="../xss4.png">
-  <img src="../xss4.png" alt="Aplicação de lista de tarefas usada para praticar Reflected XSS">
+<a href="../img/xss4.png">
+  <img src="../img/xss4.png" alt="Aplicação de lista de tarefas usada para praticar Reflected XSS">
 </a>
 
 Como podemos ver, recebemos a mensagem `Task 'test' could not be added.`, que inclui nossa entrada `test` como parte da mensagem de erro. Se nossa entrada não tiver sido filtrada ou sanitizada, a página poderá estar vulnerável a XSS. Podemos experimentar o mesmo payload XSS usado na seção anterior e clicar em **Add**:
 
-<a href="../xss5.png">
-  <img src="../xss5.png" alt="Payload de Reflected XSS inserido na aplicação de lista de tarefas">
+<a href="../img/xss5.png">
+  <img src="../img/xss5.png" alt="Payload de Reflected XSS inserido na aplicação de lista de tarefas">
 </a>
 
 Assim que clicamos em **Add**, a caixa de alerta é exibida:
 
-<a href="../xss6.png">
-  <img src="../xss6.png" alt="Caixa de alerta mostrando a execução bem-sucedida do payload de Reflected XSS">
+<a href="../img/xss6.png">
+  <img src="../img/xss6.png" alt="Caixa de alerta mostrando a execução bem-sucedida do payload de Reflected XSS">
 </a>
 
 Nesse caso, vemos que a mensagem de erro agora diz `Task '' could not be added.`. Como nosso payload está envolvido por uma tag `<script>`, ele não é renderizado visualmente pelo navegador, então vemos apenas as aspas simples vazias `''`. Podemos novamente visualizar o código-fonte da página para confirmar que a mensagem de erro contém nosso payload XSS:
@@ -44,6 +44,6 @@ A aba Network mostra as requisições HTTP: status 200 para `localhost index.php
 
 Como podemos ver, a primeira linha mostra que nossa requisição foi do tipo GET. Requisições GET enviam seus parâmetros e dados como parte da URL. Portanto, para atingir um usuário, podemos enviar a ele uma URL que contenha nosso payload. Para obter essa URL, podemos copiá-la da barra de endereços do Firefox depois de enviar o payload XSS ou clicar com o botão direito sobre a requisição GET na aba Network e selecionar **Copy > Copy URL**. Assim que a vítima visitar essa URL, o payload XSS será executado:
 
-<a href="../xss7.png">
-  <img src="../xss7.png" alt="URL contendo o payload de Reflected XSS enviado por meio de uma requisição GET">
+<a href="../img/xss7.png">
+  <img src="../img/xss7.png" alt="URL contendo o payload de Reflected XSS enviado por meio de uma requisição GET">
 </a>

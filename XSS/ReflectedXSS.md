@@ -5,22 +5,22 @@ Reflected XSS vulnerabilities occur when our input reaches the back-end server a
 
 We can start the server below to practice on a web page vulnerable to a Reflected XSS vulnerability. It is a similar To-Do List app to the one we practiced with in the previous section. We can try adding any test string to see how it's handled:
 
-<a href="xss4.png">
-  <img src="xss4.png" alt="To-Do List application used to practice Reflected XSS">
+<a href="img/xss4.png">
+  <img src="img/xss4.png" alt="To-Do List application used to practice Reflected XSS">
 </a>
 
 
 As we can see, we get Task 'test' could not be added., which includes our input test as part of the error message. If our input was not filtered or sanitized, the page might be vulnerable to XSS. We can try the same XSS payload we used in the previous section and click Add:
 
-<a href="xss5.png">
-  <img src="xss5.png" alt="Reflected XSS payload entered into the To-Do List application">
+<a href="img/xss5.png">
+  <img src="img/xss5.png" alt="Reflected XSS payload entered into the To-Do List application">
 </a>
 
 
 Once we click Add, we get the alert pop-up:
 
-<a href="xss6.png">
-  <img src="xss6.png" alt="Alert dialog showing the successful execution of the reflected XSS payload">
+<a href="img/xss6.png">
+  <img src="img/xss6.png" alt="Alert dialog showing the successful execution of the reflected XSS payload">
 </a>
 
 
@@ -41,8 +41,7 @@ http://SERVER_IP:PORT/
 Network tab showing HTTP requests: 200 status for localhost index.php, bootstrap.min.js, jquery.min.js; 404 status for localhost favicon.ico.
 As we can see, the first row shows that our request was a GET request. GET request sends their parameters and data as part of the URL. So, to target a user, we can send them a URL containing our payload. To get the URL, we can copy the URL from the URL bar in Firefox after sending our XSS payload, or we can right-click on the GET request in the Network tab and select Copy>Copy URL. Once the victim visits this URL, the XSS payload would execute:
 
-<a href="xss7.png">
-  <img src="xss7.png" alt="URL containing the reflected XSS payload sent through a GET request">
+<a href="img/xss7.png">
+  <img src="img/xss7.png" alt="URL containing the reflected XSS payload sent through a GET request">
 </a>
-
 

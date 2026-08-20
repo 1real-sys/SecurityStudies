@@ -20,8 +20,8 @@ Comentários, publicações, nomes de perfil, tickets de suporte e itens de list
 
 ## Demonstração do laboratório
 
-<a href="../xss2.png">
-  <img src="../xss2.png" alt="Aplicação de lista de tarefas usada no laboratório de Stored XSS">
+<a href="../img/xss2.png">
+  <img src="../img/xss2.png" alt="Aplicação de lista de tarefas usada no laboratório de Stored XSS">
 </a>
 
 Na aplicação de lista de tarefas, uma entrada comum como `test` aparece na página. Isso comprova que o dado é renderizado, mas ainda não confirma XSS. O próximo passo é verificar, em ambiente autorizado, se a entrada é interpretada como código.
@@ -34,8 +34,8 @@ O payload de teste apresentado no material é:
 
 Se a aplicação o inserir como HTML executável, a caixa de alerta mostrará a origem em que o script está rodando:
 
-<a href="../xss3.png">
-  <img src="../xss3.png" alt="Alerta exibindo a origem em que o payload XSS foi executado">
+<a href="../img/xss3.png">
+  <img src="../img/xss3.png" alt="Alerta exibindo a origem em que o payload XSS foi executado">
 </a>
 
 Usar `window.origin` ajuda a distinguir a origem principal de uma aplicação daquela de um IFrame. Um simples `alert(1)` demonstra execução, mas não informa em qual contexto o código está sendo executado.

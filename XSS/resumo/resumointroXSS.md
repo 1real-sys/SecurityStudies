@@ -8,8 +8,8 @@ O problema central é a quebra da separação entre **dados** e **código**: um 
 
 ## Matriz de risco
 
-<a href="../xss1.png">
-  <img src="../xss1.png" alt="Matriz de risco com os eixos Probabilidade e Impacto e as estratégias Reduzir, Evitar, Aceitar e Transferir">
+<a href="../img/xss1.png">
+  <img src="../img/xss1.png" alt="Matriz de risco com os eixos Probabilidade e Impacto e as estratégias Reduzir, Evitar, Aceitar e Transferir">
 </a>
 
 A matriz ajuda a relacionar a probabilidade de exploração ao impacto causado. Como vulnerabilidades XSS são frequentes, mesmo cenários de impacto direto limitado exigem ações para reduzir o risco.

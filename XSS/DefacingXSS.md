@@ -28,8 +28,8 @@ Tip: Here we set the background color to the default Hack The Box background col
 
 Once we add our payload to the To-Do list, we will see that the background color changed:
 
-<a href="xss12.png">
-  <img src="xss12.png" alt="Stored XSS changing the web page background color">
+<a href="img/xss12.png">
+  <img src="img/xss12.png" alt="Stored XSS changing the web page background color">
 </a>
 This will be persistent through page refreshes and will appear for anyone who visits the page, as we are utilizing a stored XSS vulnerability.
 
@@ -48,8 +48,8 @@ We can change the page title from 2Do to any title of our choosing, using the do
 
 We can see from the page window/tab that our new title has replaced the previous one:
 
-<a href="xss13.png">
-  <img src="xss13.png" alt="Browser tab showing the page title changed through XSS">
+<a href="img/xss13.png">
+  <img src="img/xss13.png" alt="Browser tab showing the page title changed through XSS">
 </a>
 
 
@@ -90,8 +90,8 @@ We will minify the HTML code into a single line and add it to our previous XSS p
 
 Once we add our payload to the vulnerable To-Do list, we will see that our HTML code is now permanently part of the web page's source code and shows our message for anyone who visits the page:
 
-<a href="xss14.png">
-  <img src="xss14.png" alt="Final defaced page displaying the injected Hack The Box Academy message">
+<a href="img/xss14.png">
+  <img src="img/xss14.png" alt="Final defaced page displaying the injected Hack The Box Academy message">
 </a>
 
 By using three XSS payloads, we were able to successfully deface our target web page. If we look at the source code of the web page, we will see the original source code still exists, and our injected payloads appear at the end:

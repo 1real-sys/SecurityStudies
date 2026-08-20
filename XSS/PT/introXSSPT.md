@@ -10,8 +10,8 @@ As vulnerabilidades XSS são executadas exclusivamente no lado do cliente e, por
 
 Matriz de risco com os eixos: Probabilidade (de baixa a alta) e Impacto (de baixo a alto), mostrando as estratégias: Reduzir, Evitar, Aceitar e Transferir.
 
-<a href="../xss1.png">
-  <img src="../xss1.png" alt="Matriz de risco com os eixos Probabilidade e Impacto e as estratégias Reduzir, Evitar, Aceitar e Transferir">
+<a href="../img/xss1.png">
+  <img src="../img/xss1.png" alt="Matriz de risco com os eixos Probabilidade e Impacto e as estratégias Reduzir, Evitar, Aceitar e Transferir">
 </a>
 
 ## Ataques XSS

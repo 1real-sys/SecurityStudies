@@ -20,8 +20,8 @@ Mensagens de erro, resultados de busca e mensagens de confirmação são pontos 
 
 ## Demonstração do laboratório
 
-<a href="../xss4.png">
-  <img src="../xss4.png" alt="Aplicação de lista de tarefas usada no laboratório de Reflected XSS">
+<a href="../img/xss4.png">
+  <img src="../img/xss4.png" alt="Aplicação de lista de tarefas usada no laboratório de Reflected XSS">
 </a>
 
 Ao enviar `test`, a aplicação retorna:
@@ -36,14 +36,14 @@ Isso mostra que a entrada foi refletida na resposta, mas ainda não confirma a v
 <script>alert(window.origin)</script>
 ```
 
-<a href="../xss5.png">
-  <img src="../xss5.png" alt="Payload de Reflected XSS inserido na aplicação vulnerável">
+<a href="../img/xss5.png">
+  <img src="../img/xss5.png" alt="Payload de Reflected XSS inserido na aplicação vulnerável">
 </a>
 
 Após o envio, o JavaScript é executado e uma caixa de alerta exibe a origem da página:
 
-<a href="../xss6.png">
-  <img src="../xss6.png" alt="Alerta confirmando a execução do payload de Reflected XSS">
+<a href="../img/xss6.png">
+  <img src="../img/xss6.png" alt="Alerta confirmando a execução do payload de Reflected XSS">
 </a>
 
 O código-fonte da resposta evidencia o contexto vulnerável:
@@ -75,8 +75,8 @@ No laboratório, a entrada é enviada por uma requisição GET. Como os parâmet
 http://SERVER_IP:PORT/
 ```
 
-<a href="../xss7.png">
-  <img src="../xss7.png" alt="URL preparada com o payload refletido em um parâmetro GET">
+<a href="../img/xss7.png">
+  <img src="../img/xss7.png" alt="URL preparada com o payload refletido em um parâmetro GET">
 </a>
 
 A vítima ainda precisa acessar a URL. Links encurtados, mensagens de phishing ou páginas intermediárias podem ocultar o conteúdo, razão pela qual entradas refletidas devem ser tratadas mesmo quando uma exploração direta parecer pouco conveniente.
